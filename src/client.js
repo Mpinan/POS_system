@@ -6,6 +6,7 @@ class Client {
   }
 
   orderDrink(drink) {
+    this.wallet -= 5;
     this.totalDrinks.push(drink);
   }
 }

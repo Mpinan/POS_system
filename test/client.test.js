@@ -17,4 +17,9 @@ describe("Client", () => {
     client.orderDrink("Vozka");
     expect(client.totalDrinks[0]).toBe("Vozka");
   });
+
+  test("can buy a drink", () => {
+    client.orderDrink("Vozka");
+    expect(client.wallet).toBe(5);
+  });
 });
