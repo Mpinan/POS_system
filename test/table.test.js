@@ -11,13 +11,15 @@ describe("Table", () => {
   });
 
   test("is able to add items to the list of items", () => {
-    let item = {
-      Coke: 2,
-      "White wine": 4,
-      bolognese: 10,
-      "Sirloing steak": 18,
+    let itemFood = {
+      "Sirloin Steak 8oz": 20,
     };
-    table.addItem(item);
-    expect(table.items.length).toEqual(1);
+    let itemDrink = {
+      Coke: 2,
+    };
+    table.addItem(itemFood);
+    table.addItem(itemDrink);
+
+    expect(table.items.length).toEqual(2);
   });
 });
