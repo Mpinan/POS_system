@@ -1,1 +1,0 @@
-﻿# Point of sale
