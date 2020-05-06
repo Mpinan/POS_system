@@ -15,7 +15,7 @@ describe("POS", () => {
   });
 
   test("renders learn react link", () => {
-    expect(wrapper.find("h1").text()).toContain("Hello World");
+    expect(wrapper.find("Table").text()).toContain("1");
     // const { getByText } = render(<App />);
     // const linkElement = getByText(/learn react/i);
     // expect(linkElement).toBeInTheDocument();

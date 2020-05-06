@@ -7,7 +7,7 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-describe("POS", () => {
+describe("Table", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<Table />);

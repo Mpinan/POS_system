@@ -11,7 +11,7 @@ class Table extends Component {
   };
   render() {
     return (
-      <div style={{ margin: "10px", padding: "5px" }}>
+      <div style={{ margin: "10px", padding: "15px" }}>
         <Button
           className="btn-lg"
           color={this.state.isBusy ? "danger" : "primary"}
