@@ -11,15 +11,14 @@ class Table extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Hello Table</h1>
+      <div style={{ margin: "10px", padding: "5px" }}>
         <Button
           className="btn-lg"
           color={this.state.isBusy ? "danger" : "primary"}
           id="book-table"
           onClick={this.handleBookings}
         >
-          Book
+          {this.props.number}
         </Button>
       </div>
     );

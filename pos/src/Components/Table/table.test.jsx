@@ -13,10 +13,6 @@ describe("POS", () => {
     wrapper = shallow(<Table />);
   });
 
-  test("renders learn react link", () => {
-    expect(wrapper.find("h1").text()).toContain("Hello Table");
-  });
-
   test("render a initial state of the table which is free/blue", () => {
     expect(wrapper.state("isBusy")).toBe(false);
   });
