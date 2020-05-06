@@ -17,16 +17,19 @@ describe("POS", () => {
     expect(wrapper.find("h1").text()).toContain("Hello Table");
   });
 
-  test("render a button", () => {
-    expect(wrapper.find("#book-table").text()).toBe("Book");
+  test("render a initial state of the table which is free/blue", () => {
+    expect(wrapper.state("isBusy")).toBe(false);
   });
 
-  test("render a initial state of items", () => {
-    expect(wrapper.find("#busy-value").text()).toBe("false");
-  });
-
-  test("render the click event when increment", () => {
+  test("render the click event and changes the state of the table which is book/red", () => {
     wrapper.find("#book-table").simulate("click");
-    expect(wrapper.find("#busy-value").text()).toBe("true");
+    expect(wrapper.state("isBusy")).toBe(true);
+  });
+
+  test("it can book or unbook a table", () => {
+    wrapper.find("#book-table").simulate("click");
+    expect(wrapper.state("isBusy")).toBe(true);
+    wrapper.find("#book-table").simulate("click");
+    expect(wrapper.state("isBusy")).toBe(false);
   });
 });

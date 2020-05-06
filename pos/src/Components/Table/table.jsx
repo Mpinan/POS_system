@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import { Button } from "reactstrap";
 
-const Table = () => {
-  const [busy, setBusy] = useState("false");
+class Table extends Component {
+  state = {
+    isBusy: false,
+  };
 
-  return (
-    <div>
-      <h1>Hello Table</h1>
-      <div id="busy-value">{busy}</div>
-      <button id="book-table" onClick={() => setBusy("true")}>
-        Book
-      </button>
-    </div>
-  );
-};
+  handleBookings = () => {
+    this.setState({ isBusy: !this.state.isBusy });
+  };
+  render() {
+    return (
+      <div>
+        <h1>Hello Table</h1>
+        <Button
+          className="btn-lg"
+          color={this.state.isBusy ? "danger" : "primary"}
+          id="book-table"
+          onClick={this.handleBookings}
+        >
+          Book
+        </Button>
+      </div>
+    );
+  }
+}
 
 export default Table;
