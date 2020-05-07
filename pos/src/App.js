@@ -46,7 +46,7 @@ class App extends Component {
   };
 
   render() {
-    const { listItems, listOfTables } = this.state;
+    const { listItems, listOfTables, addedItems } = this.state;
     return (
       <div className="App">
         {/* <Container style={{ borderStyle: "solid", borderColor: "coral" }}> */}
@@ -55,24 +55,17 @@ class App extends Component {
             <Table key={table.id} number={table.number} />
           ))}
         </div>
-        <div style={{ float: "left" }}>
-          <Table number="7" />
-          <Table number="8" />
-          <Table number="9" />
-          <Table number="10" />
-        </div>
+
         {/* </Container> */}
         {/* <Container style={{ borderStyle: "solid", borderColor: "coral" }}> */}
         <div style={{ float: "right" }}>
-          {listItems.map(
-            (item) => (
-              console.log(item.name), (<Item key={item.id} name={item.name} />)
-            )
-          )}
+          {listItems.map((item) => (
+            <Item key={item.id} name={item.name} />
+          ))}
         </div>
         {/* </Container> */}
         <Container style={{ borderStyle: "solid", borderColor: "coral" }}>
-          <ItemsList />
+          <ItemsList listItems={listItems} itemsAdded={addedItems} />
         </Container>
       </div>
     );
