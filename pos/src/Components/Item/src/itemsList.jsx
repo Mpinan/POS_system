@@ -20,24 +20,24 @@ class ItemsList extends Component {
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <button>+</button>
-            <button>-</button>
+            {/* <button>+</button>
+            <button>-</button> */}
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
             <td>Thornton</td>
             <td>@fat</td>
-            <button>+</button>
-            <button>-</button>
+            {/* <button>+</button>
+            <button>-</button> */}
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
             <td>@twitter</td>
-            <button>+</button>
-            <button>-</button>
+            {/* <button>+</button>
+            <button>-</button> */}
           </tr>
         </tbody>
       </Table>

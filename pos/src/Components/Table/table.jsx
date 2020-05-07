@@ -8,6 +8,7 @@ class Table extends Component {
   handleBookings = () => {
     this.setState({ isBusy: !this.state.isBusy });
   };
+
   render() {
     return (
       <div style={{ margin: "10px", padding: "15px" }}>

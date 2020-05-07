@@ -36,7 +36,7 @@ class ItemModal extends Component {
               <Button
                 id="decrement=btn"
                 onClick={this.decrement}
-                disabled={this.state.amount === 0 ? "disabled" : ""}
+                disabled={this.state.amount === 0 ? true : false}
               >
                 -
               </Button>
