@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "../Item/item";
+import Item from "../src/item";
 
 // Use for every test file
 import { configure, shallow } from "enzyme";

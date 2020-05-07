@@ -3,14 +3,14 @@ import React from "react";
 // Use for every test file
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import ItemModal from "./itemModal";
+import ItemsList from "../src/itemsList";
 
 configure({ adapter: new Adapter() });
 
-describe("ItemModal", () => {
+describe("ItemList", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<ItemModal />);
+    wrapper = mount(<ItemsList />);
   });
 
   test("render a initial state of items", () => {

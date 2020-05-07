@@ -5,7 +5,6 @@ import { Button } from "reactstrap";
 class Item extends Component {
   state = {
     modal: false,
-    // amount: 0,
   };
 
   handleModal = () => {
