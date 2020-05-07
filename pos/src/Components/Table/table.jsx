@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
 
 class Table extends Component {
   state = {
@@ -12,14 +11,15 @@ class Table extends Component {
   render() {
     return (
       <div style={{ margin: "10px", padding: "15px" }}>
-        <Button
-          className="btn-lg"
-          color={this.state.isBusy ? "danger" : "primary"}
+        <button
+          className={
+            this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
+          }
           id="book-table"
           onClick={this.handleBookings}
         >
           {this.props.number}
-        </Button>
+        </button>
       </div>
     );
   }
