@@ -14,7 +14,7 @@ class ItemModal extends Component {
   };
 
   reset = () => {
-    this.setState({ count: 0 });
+    this.setState({ amount: 0 });
   };
 
   decrement = () => {
@@ -33,10 +33,19 @@ class ItemModal extends Component {
           <ModalBody>
             How Many?
             <Container>
-              <Button id="decrement=btn" onClick={this.decrement}>
+              <Button
+                id="decrement=btn"
+                onClick={this.decrement}
+                disabled={this.state.amount === 0 ? "disabled" : ""}
+              >
                 -
               </Button>
-              <h2>{this.state.amount}</h2>
+              <h2>
+                {this.state.amount}{" "}
+                <Button id="reset=btn" onClick={this.reset}>
+                  Reset
+                </Button>
+              </h2>
               <Button id="increment=btn" onClick={this.increment}>
                 +
               </Button>
