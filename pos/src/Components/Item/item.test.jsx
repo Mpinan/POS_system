@@ -8,25 +8,30 @@ import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
 describe("Item", () => {
-  let wrapper;
+  let itemComponent;
+
   beforeEach(() => {
-    wrapper = shallow(<Item />);
+    itemComponent = shallow(<Item />);
   });
 
   test("render a initial state of the number of items", () => {
-    expect(wrapper.state("amount")).toBe(0);
+    expect(itemComponent.state("modal")).toBe(false);
   });
 
   test("render the click event and changes the state of the table which is book/red", () => {
-    wrapper.find("#book-item").simulate("click");
-    expect(wrapper.state("modal")).toBe(true);
+    itemComponent.find("#add-Item").simulate("click");
+    expect(itemComponent.state("modal")).toBe(true);
   });
 
   test("it can book or unbook a table", () => {
-    console.log(wrapper.find(".button"));
-    wrapper.find("button").simulate("click");
-    expect(wrapper.state("modal")).toBe(true);
-    wrapper.find("#book-item").simulate("click");
-    expect(wrapper.state("modal")).toBe(false);
+    itemComponent.find("#add-Item").simulate("click");
+    expect(itemComponent.state("modal")).toBe(true);
+    itemComponent.find("#add-Item").simulate("click");
+    expect(itemComponent.state("modal")).toBe(false);
+  });
+
+  test("on click render another component", () => {
+    itemComponent.find("#add-Item").simulate("click");
+    expect(itemComponent.find("#itemModal").text()).toBe("<ItemModal />");
   });
 });

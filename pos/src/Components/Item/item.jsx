@@ -20,15 +20,19 @@ class Item extends Component {
     return (
       <div style={{ margin: "10px", padding: "15px" }}>
         <Button
-          className="btn-lg"
+          className="btn-primary btn-lg"
           color={this.state.isBusy ? "danger" : "primary"}
-          id="book-Item"
+          id="add-Item"
           onClick={this.handleModal}
         >
           {this.props.name}
         </Button>
 
-        <ItemModal modal={this.state.modal} handleModal={this.handleModal} />
+        <ItemModal
+          id="itemModal"
+          modal={this.state.modal}
+          handleModal={this.handleModal}
+        />
       </div>
     );
   }

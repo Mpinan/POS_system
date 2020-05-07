@@ -27,25 +27,31 @@ class ItemModal extends Component {
 
   render() {
     return (
-      <Modal isOpen={this.props.modal} toggle={this.handleModal}>
-        <ModalHeader toggle={this.handleModal}>{this.props.name}</ModalHeader>
-        <ModalBody>
-          How Many?
-          <Container>
-            <Button onClick={this.decrement}>-</Button>
-            <h2>{this.state.amount}</h2>
-            <Button onClick={this.increment}>+</Button>
-          </Container>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={this.props.handleModal}>
-            Add
-          </Button>
-          <Button color="secondary" onClick={this.props.handleModal}>
-            Cancel
-          </Button>
-        </ModalFooter>
-      </Modal>
+      <div>
+        <Modal isOpen={this.props.modal} toggle={this.handleModal}>
+          <ModalHeader toggle={this.handleModal}>{this.props.name}</ModalHeader>
+          <ModalBody>
+            How Many?
+            <Container>
+              <Button id="decrement=btn" onClick={this.decrement}>
+                -
+              </Button>
+              <h2>{this.state.amount}</h2>
+              <Button id="increment=btn" onClick={this.increment}>
+                +
+              </Button>
+            </Container>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.props.handleModal}>
+              Add
+            </Button>
+            <Button color="secondary" onClick={this.props.handleModal}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
     );
   }
 }
