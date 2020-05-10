@@ -4,6 +4,7 @@ import { Table } from "reactstrap";
 class ItemsList extends Component {
   render() {
     const { listItems } = this.props;
+    console.log(listItems);
 
     let list = listItems.map((item) => {
       return (
@@ -32,7 +33,6 @@ class ItemsList extends Component {
             <th></th>
           </tr>
         </thead>
-        {/* <Description items={filteredCats} /> */}
         <tbody>{list}</tbody>
       </Table>
     );

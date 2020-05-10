@@ -6,7 +6,9 @@ class Table extends Component {
   };
 
   handleBookings = () => {
-    this.setState({ isBusy: !this.state.isBusy });
+    if (this.props.items.length > 0) {
+      this.setState({ isBusy: !this.state.isBusy });
+    }
   };
 
   render() {

@@ -11,14 +11,29 @@ import { Container } from "reactstrap";
 class App extends Component {
   state = {
     listOfTables: [
-      { id: 0, number: 1 },
-      { id: 1, number: 2 },
-      { id: 2, number: 3 },
-      { id: 3, number: 4 },
-      { id: 4, number: 5 },
-      { id: 5, number: 6 },
-      { id: 6, number: 7 },
-      { id: 7, number: 8 },
+      {
+        id: 0,
+        number: 1,
+        items: [
+          {
+            id: 0,
+            name: "Sirloin",
+            price: "£20",
+          },
+          {
+            id: 0,
+            name: "Sirloin",
+            price: "£20",
+          },
+        ],
+      },
+      { id: 1, number: 2, items: [] },
+      { id: 2, number: 3, items: [] },
+      { id: 3, number: 4, items: [] },
+      { id: 4, number: 5, items: [] },
+      { id: 5, number: 6, items: [] },
+      { id: 6, number: 7, items: [] },
+      { id: 7, number: 8, items: [] },
     ],
     listItems: [
       {
@@ -42,30 +57,26 @@ class App extends Component {
         price: "£20",
       },
     ],
-    addedItems: [],
   };
 
   render() {
-    const { listItems, listOfTables, addedItems } = this.state;
+    const { listItems, listOfTables } = this.state;
     return (
       <div className="App">
-        {/* <Container style={{ borderStyle: "solid", borderColor: "coral" }}> */}
         <div style={{ float: " left" }}>
           {listOfTables.map((table) => (
-            <Table key={table.id} number={table.number} />
+            <Table key={table.id} number={table.number} items={table.items} />
           ))}
         </div>
 
-        {/* </Container> */}
-        {/* <Container style={{ borderStyle: "solid", borderColor: "coral" }}> */}
         <div style={{ float: "right" }}>
           {listItems.map((item) => (
             <Item key={item.id} name={item.name} />
           ))}
         </div>
-        {/* </Container> */}
+
         <Container style={{ borderStyle: "solid", borderColor: "coral" }}>
-          <ItemsList listItems={listItems} itemsAdded={addedItems} />
+          <ItemsList key={listOfTables} listItems={listOfTables} />
         </Container>
       </div>
     );
