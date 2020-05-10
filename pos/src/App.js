@@ -13,15 +13,12 @@ class App extends Component {
         id: 0,
         number: 1,
         items: [
+          { id: 0, name: "Sirloin", price: 20, amount: 3 },
           {
-            id: 0,
-            name: "Sirloin",
-            price: "£20",
-          },
-          {
-            id: 0,
-            name: "Sirloin",
-            price: "£20",
+            id: 1,
+            name: "Coke",
+            amount: 3,
+            price: 20,
           },
         ],
       },

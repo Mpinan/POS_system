@@ -4,8 +4,11 @@ import { Table } from "reactstrap";
 class ItemsList extends Component {
   render() {
     const { listItems } = this.props;
+    let totalPricePerItem;
 
-    let list = listItems.map((item) => {
+    let list = listItems[0].map((item) => {
+      totalPricePerItem = item.amount * item.price;
+
       return (
         <tr key={item.id}>
           <td>
@@ -13,9 +16,9 @@ class ItemsList extends Component {
               {item.name}
             </a>
           </td>
-          <td>2</td>
-          <td>{item.price}</td>
-          <td></td>
+          <td>{item.amount}</td>
+          <td>£{item.price}</td>
+          <td>£{totalPricePerItem}</td>
           <td></td>
         </tr>
       );
@@ -29,11 +32,21 @@ class ItemsList extends Component {
             <tr>
               <th>Name</th>
               <th>Amount</th>
-              <th></th>
-              <th></th>
+              <th>Price per Item</th>
+              <th>Total Price of Item</th>
+              <th>Total Price</th>
             </tr>
           </thead>
-          <tbody>{list}</tbody>
+          {list}
+          <thead>
+            <tr>
+              <th>Total Price</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>{totalPricePerItem + totalPricePerItem}</th>
+            </tr>
+          </thead>
         </Table>
       </div>
     );
