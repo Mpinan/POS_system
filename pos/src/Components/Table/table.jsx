@@ -44,20 +44,20 @@ class Table extends Component {
             {this.props.number}
           </button>
         </div>
-        <div
-          style={{
-            borderStyle: "solid",
-            borderColor: "coral",
-            position: "relative",
-          }}
-        >
-          {this.state.showTable ? (
+        {this.state.showTable ? (
+          <div
+            style={{
+              borderStyle: "solid",
+              borderColor: "coral",
+              position: "relative",
+            }}
+          >
             <ItemsList
               listItems={this.state.selectedTableItems}
               tableNumber={this.state.selectedTable}
             />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </div>
     );
   }
