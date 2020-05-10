@@ -2,11 +2,9 @@ import React, { Component } from "react";
 
 import Table from "./Components/Table/table";
 
-import ItemsList from "./Components/Item/src/itemsList";
 import Item from "./Components/Item/src/item";
 
 import "./App.css";
-import { Container } from "reactstrap";
 
 class App extends Component {
   state = {
@@ -60,7 +58,7 @@ class App extends Component {
   };
 
   render() {
-    const { listItems, listOfTables } = this.state;
+    const { listItems, listOfTables, selectedTable } = this.state;
     return (
       <div className="App">
         <div style={{ float: " left" }}>
@@ -74,10 +72,6 @@ class App extends Component {
             <Item key={item.id} name={item.name} />
           ))}
         </div>
-
-        <Container style={{ borderStyle: "solid", borderColor: "coral" }}>
-          <ItemsList key={listOfTables} listItems={listOfTables} />
-        </Container>
       </div>
     );
   }

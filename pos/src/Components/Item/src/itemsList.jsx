@@ -4,7 +4,6 @@ import { Table } from "reactstrap";
 class ItemsList extends Component {
   render() {
     const { listItems } = this.props;
-    console.log(listItems);
 
     let list = listItems.map((item) => {
       return (
@@ -14,27 +13,29 @@ class ItemsList extends Component {
               {item.name}
             </a>
           </td>
-          <td>{item.name}</td>
-          <td></td>
+          <td>2</td>
           <td>{item.price}</td>
+          <td></td>
           <td></td>
         </tr>
       );
     });
 
     return (
-      <Table striped responsive hover>
-        <thead>
-          <tr>
-            <th>Table Number</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Total Price</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>{list}</tbody>
-      </Table>
+      <div stlye={{ position: "absolute", bottom: "0" }}>
+        {this.props.tableNumber}
+        <Table striped responsive hover>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{list}</tbody>
+        </Table>
+      </div>
     );
   }
 }
