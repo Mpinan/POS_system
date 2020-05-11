@@ -28,4 +28,14 @@ describe("Table", () => {
     wrapper.find("#book-table").simulate("click");
     expect(wrapper.state("isBusy")).toBe(false);
   });
+
+  test("it doesn't show anything if no table is selected", () => {
+    console.log(wrapper.state("showTable"));
+    expect(wrapper.state("showTable")).toBe(false);
+  });
+
+  test("it show a itemList if one of the table is selected", () => {
+    wrapper.find("#book-table").simulate("click");
+    expect(wrapper.state("showTable")).toBe(true);
+  });
 });

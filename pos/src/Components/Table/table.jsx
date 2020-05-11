@@ -1,25 +1,30 @@
 import React, { Component } from "react";
 import ItemsList from "../Item/src/itemsList";
 
-class Table extends Component {
-  state = {
-    selectedTable: "",
-    isBusy: false,
-    showTable: false,
-    selectedTableItems: [],
+class DinningTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTable: "",
+      isBusy: false,
+      showTable: false,
+      selectedTableItems: [],
+    };
+  }
+
+  handleBookings = () => {
+    setTimeout(() => {
+      if (this.props.items.length >= 1) {
+        this.setState({ isBusy: true });
+      } else {
+        this.setState({ isBusy: false });
+      }
+    }, 1000);
   };
 
   componentDidMount() {
     this.handleBookings();
   }
-
-  handleBookings = () => {
-    if (this.props.items.length > 0) {
-      this.setState({ isBusy: true });
-    } else {
-      this.setState({ isBusy: false });
-    }
-  };
 
   onClickChangeTableList = () => {
     let selectedTableItems = [];
@@ -33,13 +38,12 @@ class Table extends Component {
     return (
       <div>
         <div style={{ margin: "10px", padding: "15px" }}>
-          {/* {this.handleBookings} */}
           <button
             className={
               this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
             }
             id="book-table"
-            onDoubleClick={this.onClickChangeTableList}
+            onClick={this.onClickChangeTableList}
           >
             {this.props.number}
           </button>
@@ -47,6 +51,7 @@ class Table extends Component {
         {this.state.showTable ? (
           <div
             style={{
+              float: "right",
               borderStyle: "solid",
               borderColor: "coral",
               position: "relative",
@@ -63,4 +68,4 @@ class Table extends Component {
   }
 }
 
-export default Table;
+export default DinningTable;
