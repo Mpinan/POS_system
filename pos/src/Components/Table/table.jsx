@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ItemsList from "../Item/src/itemsList";
 
+import { Container } from "reactstrap";
+
 class DinningTable extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ class DinningTable extends Component {
   render() {
     return (
       <div>
-        <div style={{ margin: "10px", padding: "15px" }}>
+        <div style={{ margin: "10px", padding: "15px", float: "left" }}>
           <button
             className={
               this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
@@ -51,16 +53,19 @@ class DinningTable extends Component {
         {this.state.showTable ? (
           <div
             style={{
-              float: "right",
               borderStyle: "solid",
               borderColor: "coral",
               position: "relative",
             }}
           >
-            <ItemsList
-              listItems={this.state.selectedTableItems}
-              tableNumber={this.state.selectedTable}
-            />
+            <div style={{ float: "right" }}>
+              <Container>
+                <ItemsList
+                  listItems={this.state.selectedTableItems}
+                  tableNumber={this.state.selectedTable}
+                />
+              </Container>
+            </div>
           </div>
         ) : null}
       </div>

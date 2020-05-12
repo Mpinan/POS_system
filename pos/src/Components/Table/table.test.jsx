@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../Table/table";
+import DinningTable from "../Table/table";
 
 // Use for every test file
 import { configure, shallow } from "enzyme";
@@ -10,16 +10,11 @@ configure({ adapter: new Adapter() });
 describe("Table", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Table />);
+    wrapper = shallow(<DinningTable />);
   });
 
   test("render a initial state of the table which is free/blue", () => {
     expect(wrapper.state("isBusy")).toBe(false);
-  });
-
-  test("render the click event and changes the state of the table which is book/red", () => {
-    wrapper.find("#book-table").simulate("click");
-    expect(wrapper.state("isBusy")).toBe(true);
   });
 
   test("it can book or unbook a table", () => {
@@ -30,7 +25,6 @@ describe("Table", () => {
   });
 
   test("it doesn't show anything if no table is selected", () => {
-    console.log(wrapper.state("showTable"));
     expect(wrapper.state("showTable")).toBe(false);
   });
 

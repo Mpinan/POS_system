@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+import Item from "./item";
 
 class ItemsList extends Component {
   render() {
     const { listItems } = this.props;
     let totalPricePerItem;
-
+    console.log(listItems);
     let list = listItems[0].map((item) => {
       totalPricePerItem = item.amount * item.price;
 
@@ -48,6 +49,9 @@ class ItemsList extends Component {
             </tr>
           </thead>
         </Table>
+        <div style={{ float: "right" }}>
+          <Item />
+        </div>
       </div>
     );
   }
