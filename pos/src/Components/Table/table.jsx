@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-import ItemsList from "../Item/src/itemsList";
-
-import { Container } from "reactstrap";
 
 class DinningTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTable: "",
       isBusy: false,
       showTable: false,
-      selectedTableItems: [],
     };
   }
 
@@ -21,53 +16,39 @@ class DinningTable extends Component {
       } else {
         this.setState({ isBusy: false });
       }
-    }, 1000);
+    }, 5);
   };
 
   componentDidMount() {
     this.handleBookings();
   }
 
-  onClickChangeTableList = () => {
-    let selectedTableItems = [];
-    selectedTableItems.push(this.props.items);
-    this.setState({ selectedTable: this.props.number });
-    this.setState({ selectedTableItems });
-    this.setState({ showTable: !this.state.showTable });
-  };
+  // onClickChangeTableList = (tableNumber) => {
+  //   // this.state.selectedTable;
+  //   // let selectedTableItems = [];
+  //   // selectedTableItems.push(this.props.items);
+  //   this.setState({ selectedTable: tableNumber });
+  //   // this.setState({ selectedTableItems });
+  //   // this.setState({ showTable: !this.state.showTable });
+  // };
 
   render() {
+    let selectTable = this.props.onClickSelectTable;
+
     return (
       <div>
-        <div style={{ margin: "10px", padding: "15px", float: "left" }}>
+        <div style={{ margin: "10px", padding: "15px" }}>
           <button
             className={
               this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
             }
+            key={this.props.number}
             id="book-table"
-            onClick={this.onClickChangeTableList}
+            onClick={selectTable}
           >
             {this.props.number}
           </button>
         </div>
-        {this.state.showTable ? (
-          <div
-            style={{
-              borderStyle: "solid",
-              borderColor: "coral",
-              position: "relative",
-            }}
-          >
-            <div style={{ float: "right" }}>
-              <Container>
-                <ItemsList
-                  listItems={this.state.selectedTableItems}
-                  tableNumber={this.state.selectedTable}
-                />
-              </Container>
-            </div>
-          </div>
-        ) : null}
       </div>
     );
   }

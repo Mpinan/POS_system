@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
-import Item from "./item";
 
 class ItemsList extends Component {
   render() {
-    const { listItems } = this.props;
+    const { itemsInTable } = this.props;
     let totalPricePerItem;
-    console.log(listItems);
-    let list = listItems[0].map((item) => {
+    console.log(itemsInTable);
+    let list = itemsInTable.map((item) => {
       totalPricePerItem = item.amount * item.price;
 
       return (
-        <tr key={item.id}>
-          <td>
-            <a target="_blank" href={item.cfa_url}>
-              {item.name}
-            </a>
-          </td>
-          <td>{item.amount}</td>
-          <td>£{item.price}</td>
-          <td>£{totalPricePerItem}</td>
-          <td></td>
-        </tr>
+        <tbody>
+          <tr key={item.id}>
+            <td>
+              <a target="_blank" href={item.cfa_url}>
+                {item.name}
+              </a>
+            </td>
+            <td>{item.amount}</td>
+            <td>£{item.price}</td>
+            <td>£{totalPricePerItem}</td>
+            <td></td>
+          </tr>
+        </tbody>
       );
     });
 
@@ -39,6 +40,7 @@ class ItemsList extends Component {
             </tr>
           </thead>
           {list}
+
           <thead>
             <tr>
               <th>Total Price</th>
@@ -49,9 +51,9 @@ class ItemsList extends Component {
             </tr>
           </thead>
         </Table>
-        <div style={{ float: "right" }}>
-          <Item />
-        </div>
+        {/* <div style={{ float: "right" }}>
+          <Menu />
+        </div> */}
       </div>
     );
   }
