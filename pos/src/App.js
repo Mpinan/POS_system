@@ -8,8 +8,9 @@ import ItemsList from "./Components/Item/src/itemsList";
 
 class App extends Component {
   state = {
-    selectedTable: "",
+    // selectedTable: "",
     showItemsInTable: false,
+    items: [],
     listOfTables: [
       {
         id: 0,
@@ -32,6 +33,7 @@ class App extends Component {
       { id: 6, number: 7, items: [] },
       { id: 7, number: 8, items: [] },
     ],
+
     listItems: [
       {
         id: 0,
@@ -54,16 +56,15 @@ class App extends Component {
         price: "£20",
       },
     ],
+    totalPrice: 0,
   };
 
-  onClickChangeTableList = (tableID) => {
-    console.log(tableID);
-    // this.state.selectedTable;
-    // let selectedTableItems = [];
-    // selectedTableItems.push(this.props.items);
-    // this.setState({ selectedTable: tableNumber });
-    // this.setState({ selectedTableItems });
-    // this.setState({ showTable: !this.state.showTable });
+  onClickChangeTableList = (tableNumber) => {
+    const { listOfTables } = this.state;
+
+    this.setState({ selectedTable: listOfTables[tableNumber].number });
+    let items = [...listOfTables[tableNumber].items];
+    this.setState({ items });
   };
 
   render() {
@@ -75,12 +76,11 @@ class App extends Component {
           {listOfTables.map((table) => (
             <div style={{ margin: "2px", float: "left" }}>
               <DinningTable
-                onClickSelectTable={() =>
-                  this.onClickChangeTableList(table.number)
-                }
-                key={table.id}
+                onClickSelectTable={() => this.onClickChangeTableList(table.id)}
+                id={table.id}
                 number={table.number}
                 items={table.items}
+                totalPrice={table.totalPrice}
               />
             </div>
           ))}
@@ -97,8 +97,9 @@ class App extends Component {
         </Container>
         <Container>
           <ItemsList
-            itemsInTable={listOfTables}
+            itemsInTable={this.state.items}
             tableNumber={this.state.selectedTable}
+            totalPrice={this.state.totalPrice}
           ></ItemsList>
         </Container>
       </div>

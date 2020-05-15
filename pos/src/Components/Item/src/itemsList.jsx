@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import { Table } from "reactstrap";
 
 class ItemsList extends Component {
+  state = {
+    show: false,
+  };
+
+  showTableNumber() {
+    this.setState({ show: !this.state.show });
+  }
+
   render() {
-    const { itemsInTable } = this.props;
-    let totalPricePerItem;
-    console.log(itemsInTable);
+    const { itemsInTable, totalPrice } = this.props;
+    let total;
     let list = itemsInTable.map((item) => {
+      let totalPricePerItem;
       totalPricePerItem = item.amount * item.price;
+      // totalPrice = totalPricePerItem + item.totalPricePerItem;
 
       return (
         <tbody>
@@ -27,8 +36,16 @@ class ItemsList extends Component {
     });
 
     return (
-      <div stlye={{ position: "absolute", bottom: "0" }}>
-        {this.props.tableNumber}
+      <div>
+        {this.state.show ? null : (
+          <Table>
+            <thead>
+              <tr>
+                <th>Table number: {this.props.tableNumber}</th>
+              </tr>
+            </thead>
+          </Table>
+        )}
         <Table striped responsive hover>
           <thead>
             <tr>
@@ -40,20 +57,16 @@ class ItemsList extends Component {
             </tr>
           </thead>
           {list}
-
           <thead>
             <tr>
               <th>Total Price</th>
               <th></th>
               <th></th>
               <th></th>
-              <th>{totalPricePerItem + totalPricePerItem}</th>
+              <th>0</th>
             </tr>
           </thead>
         </Table>
-        {/* <div style={{ float: "right" }}>
-          <Menu />
-        </div> */}
       </div>
     );
   }

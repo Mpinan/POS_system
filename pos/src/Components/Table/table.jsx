@@ -23,15 +23,6 @@ class DinningTable extends Component {
     this.handleBookings();
   }
 
-  // onClickChangeTableList = (tableNumber) => {
-  //   // this.state.selectedTable;
-  //   // let selectedTableItems = [];
-  //   // selectedTableItems.push(this.props.items);
-  //   this.setState({ selectedTable: tableNumber });
-  //   // this.setState({ selectedTableItems });
-  //   // this.setState({ showTable: !this.state.showTable });
-  // };
-
   render() {
     let selectTable = this.props.onClickSelectTable;
 
@@ -42,7 +33,7 @@ class DinningTable extends Component {
             className={
               this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
             }
-            key={this.props.number}
+            key={this.props.id}
             id="book-table"
             onClick={selectTable}
           >
