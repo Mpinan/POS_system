@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import DinningTable from "./Components/Table/table";
 import Menu from "./Components/Item/src/menu";
 import "./App.css";
-import { Container } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import ItemsList from "./Components/Item/src/itemsList";
 
 class App extends Component {
@@ -71,29 +71,39 @@ class App extends Component {
     const { listOfTables, listItems } = this.state;
 
     return (
-      <div className="App">
+      <Container className="App">
         <Container>
-          {listOfTables.map((table) => (
-            <div style={{ margin: "2px", float: "left" }}>
-              <DinningTable
-                onClickSelectTable={() => this.onClickChangeTableList(table.id)}
-                id={table.id}
-                number={table.number}
-                items={table.items}
-                totalPrice={table.totalPrice}
-              />
-            </div>
-          ))}
+          <Row className="text-center">
+            {listOfTables.map((table) => (
+              <div style={{ margin: "2px" }}>
+                <Col xs="6" sm="4">
+                  <DinningTable
+                    onClickSelectTable={() =>
+                      this.onClickChangeTableList(table.id)
+                    }
+                    id={table.id}
+                    number={table.number}
+                    items={table.items}
+                    totalPrice={table.totalPrice}
+                  />
+                </Col>
+              </div>
+            ))}
+          </Row>
         </Container>
         <Container>
-          {listItems.map((item) => (
-            <div
-              className="text-center"
-              style={{ margin: "2px", float: "right" }}
-            >
-              <Menu key={item.id} name={item.name} price={item.price} />
-            </div>
-          ))}
+          <Row>
+            {listItems.map((item) => (
+              <div
+                className="text-center"
+                style={{ margin: "2px", float: "right" }}
+              >
+                <Col xs="4" sm="4">
+                  <Menu key={item.id} name={item.name} price={item.price} />
+                </Col>
+              </div>
+            ))}
+          </Row>
         </Container>
         <Container>
           <ItemsList
@@ -102,7 +112,7 @@ class App extends Component {
             totalPrice={this.state.totalPrice}
           ></ItemsList>
         </Container>
-      </div>
+      </Container>
     );
   }
 }
