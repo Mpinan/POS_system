@@ -92,12 +92,9 @@ class App extends Component {
           </Row>
         </Container>
         <Container>
-          <Row>
+          <Row className="text-center">
             {listItems.map((item) => (
-              <div
-                className="text-center"
-                style={{ margin: "2px", float: "right" }}
-              >
+              <div style={{ margin: "2px", float: "right" }}>
                 <Col xs="4" sm="4">
                   <Menu key={item.id} name={item.name} price={item.price} />
                 </Col>
