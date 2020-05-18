@@ -8,7 +8,6 @@ import ItemsList from "./Components/Item/src/itemsList";
 
 class App extends Component {
   state = {
-    // selectedTable: "",
     showItemsInTable: false,
     items: [],
     listOfTables: [
@@ -68,7 +67,13 @@ class App extends Component {
   };
 
   render() {
-    const { listOfTables, listItems } = this.state;
+    const {
+      listOfTables,
+      listItems,
+      selectedTable,
+      totalPrice,
+      items,
+    } = this.state;
 
     return (
       <Container className="App">
@@ -96,7 +101,13 @@ class App extends Component {
             {listItems.map((item) => (
               <div style={{ margin: "2px", float: "right" }}>
                 <Col xs="4" sm="4">
-                  <Menu key={item.id} name={item.name} price={item.price} />
+                  <Menu
+                    key={item.id}
+                    name={item.name}
+                    price={item.price}
+                    tableNumber={selectedTable}
+                    listOfTables={listOfTables}
+                  />
                 </Col>
               </div>
             ))}
@@ -104,9 +115,9 @@ class App extends Component {
         </Container>
         <Container>
           <ItemsList
-            itemsInTable={this.state.items}
-            tableNumber={this.state.selectedTable}
-            totalPrice={this.state.totalPrice}
+            itemsInTable={items}
+            tableNumber={selectedTable}
+            totalPrice={totalPrice}
           ></ItemsList>
         </Container>
       </Container>

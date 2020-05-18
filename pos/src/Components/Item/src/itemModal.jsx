@@ -33,6 +33,7 @@ class ItemModal extends Component {
             <ModalHeader toggle={this.handleModal}>
               {this.props.name}
             </ModalHeader>
+            Table number {this.props.tableNumber}
             <ModalBody>
               How Many?
               <Container className="text-center">
