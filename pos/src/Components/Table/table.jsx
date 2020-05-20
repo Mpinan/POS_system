@@ -10,29 +10,22 @@ class DinningTable extends Component {
   }
 
   handleBookings = () => {
-    setTimeout(() => {
-      if (this.props.items.length >= 1) {
-        this.setState({ isBusy: true });
-      } else {
-        this.setState({ isBusy: false });
-      }
-    }, 5);
+    if (this.props.items.length >= 1) {
+      return true;
+    } else {
+      return false;
+    }
   };
-
-  componentDidMount() {
-    this.handleBookings();
-  }
 
   render() {
     let selectTable = this.props.onClickSelectTable;
+    const isBusy = this.handleBookings;
 
     return (
       <div>
         <div style={{ margin: "10px", padding: "15px" }}>
           <button
-            className={
-              this.state.isBusy ? "btn-lg btn-danger" : "btn-lg btn-primary"
-            }
+            className={isBusy() ? "btn-lg btn-danger" : "btn-lg btn-primary"}
             key={this.props.id}
             id="book-table"
             onClick={selectTable}

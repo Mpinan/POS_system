@@ -10,12 +10,8 @@ import {
 
 class ItemModal extends Component {
   state = {
-    currentItem: {
-      id: this.props.itemID,
-      name: this.props.itemName,
-      amount: 0,
-      price: this.props.itemPrice,
-    },
+    amount: 0,
+    currentItem: {},
     listOfTable: this.props.listOfTables,
   };
 
@@ -24,19 +20,23 @@ class ItemModal extends Component {
   };
 
   decrement = () => {
-    this.setState({ amount: this.state.currentItem.amount - 1 });
+    this.setState({ amount: this.state.amount - 1 });
   };
 
   increment = () => {
-    this.setState({ amount: this.state.currentItem.amount + 1 });
+    this.setState({ amount: this.state.amount + 1 });
   };
 
   addItem = () => {
-    this.state.listOfTable[this.props.tableID].items.push(
-      this.state.currentItem
-    );
-    this.props.handleModal();
-    console.log(this.state.listOfTable[this.props.tableID].items);
+    const currentItem = {};
+    currentItem.id = this.props.itemID;
+    currentItem.amount = this.state.amount;
+    currentItem.name = this.props.itemName;
+    currentItem.price = this.props.itemPrice;
+    this.setState({ currentItem });
+    this.state.listOfTable[this.props.tableID].items.push(currentItem);
+    console.log(this.state.currentItem);
+    // this.props.handleModal();
   };
 
   render() {
@@ -56,7 +56,7 @@ class ItemModal extends Component {
                   style={{ margin: "5px" }}
                   id="decrement=btn"
                   onClick={this.decrement}
-                  disabled={this.state.currentItem.amount === 0 ? true : false}
+                  disabled={this.state.amount === 0 ? true : false}
                 >
                   -
                 </Button>
@@ -68,7 +68,7 @@ class ItemModal extends Component {
                   +
                 </Button>
 
-                <h2>{this.state.currentItem.amount} </h2>
+                <h2>{this.state.amount} </h2>
                 <Button id="reset=btn" onClick={this.reset}>
                   Reset
                 </Button>
