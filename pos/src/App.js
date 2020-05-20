@@ -37,22 +37,22 @@ class App extends Component {
       {
         id: 0,
         name: "Sirloin",
-        price: "£20",
+        price: 20,
       },
       {
         id: 1,
         name: "Bolognese",
-        price: "£20",
+        price: 20,
       },
       {
         id: 2,
         name: "Coke",
-        price: "£20",
+        price: 20,
       },
       {
         id: 3,
         name: "Fanta",
-        price: "£20",
+        price: 20,
       },
     ],
     totalPrice: 0,
@@ -62,6 +62,7 @@ class App extends Component {
     const { listOfTables } = this.state;
 
     this.setState({ selectedTable: listOfTables[tableNumber].number });
+    this.setState({ selectedTableID: listOfTables[tableNumber].id });
     let items = [...listOfTables[tableNumber].items];
     this.setState({ items });
   };
@@ -73,6 +74,7 @@ class App extends Component {
       selectedTable,
       totalPrice,
       items,
+      selectedTableID,
     } = this.state;
 
     return (
@@ -98,19 +100,25 @@ class App extends Component {
         </Container>
         <Container>
           <Row className="text-center">
-            {listItems.map((item) => (
-              <div style={{ margin: "2px", float: "right" }}>
-                <Col xs="4" sm="4">
-                  <Menu
-                    key={item.id}
-                    name={item.name}
-                    price={item.price}
-                    tableNumber={selectedTable}
-                    listOfTables={listOfTables}
-                  />
-                </Col>
-              </div>
-            ))}
+            {listItems.map(
+              (item) => (
+                console.log(item.id),
+                (
+                  <div style={{ margin: "2px", float: "right" }}>
+                    <Col xs="4" sm="4">
+                      <Menu
+                        tableID={selectedTableID}
+                        itemID={item.id}
+                        name={item.name}
+                        price={item.price}
+                        tableNumber={selectedTable}
+                        listOfTables={listOfTables}
+                      />
+                    </Col>
+                  </div>
+                )
+              )
+            )}
           </Row>
         </Container>
         <Container>

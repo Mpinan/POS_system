@@ -10,7 +10,13 @@ import {
 
 class ItemModal extends Component {
   state = {
-    amount: 0,
+    currentItem: {
+      id: this.props.itemID,
+      name: this.props.itemName,
+      amount: 0,
+      price: this.props.itemPrice,
+    },
+    listOfTable: this.props.listOfTables,
   };
 
   reset = () => {
@@ -18,22 +24,31 @@ class ItemModal extends Component {
   };
 
   decrement = () => {
-    this.setState({ amount: this.state.amount - 1 });
+    this.setState({ amount: this.state.currentItem.amount - 1 });
   };
 
   increment = () => {
-    this.setState({ amount: this.state.amount + 1 });
+    this.setState({ amount: this.state.currentItem.amount + 1 });
+  };
+
+  addItem = () => {
+    this.state.listOfTable[this.props.tableID].items.push(
+      this.state.currentItem
+    );
+    this.props.handleModal();
+    console.log(this.state.listOfTable[this.props.tableID].items);
   };
 
   render() {
+    const { modal, handleModal, tableNumber, itemName } = this.props;
     return (
       <div>
         <Container>
-          <Modal isOpen={this.props.modal} toggle={this.handleModal}>
-            <ModalHeader toggle={this.handleModal}>
-              {this.props.name}
+          <Modal isOpen={modal} toggle={handleModal}>
+            <ModalHeader toggle={handleModal}>
+              {itemName} For Table number {tableNumber}
             </ModalHeader>
-            Table number {this.props.tableNumber}
+
             <ModalBody>
               How Many?
               <Container className="text-center">
@@ -41,7 +56,7 @@ class ItemModal extends Component {
                   style={{ margin: "5px" }}
                   id="decrement=btn"
                   onClick={this.decrement}
-                  disabled={this.state.amount === 0 ? true : false}
+                  disabled={this.state.currentItem.amount === 0 ? true : false}
                 >
                   -
                 </Button>
@@ -53,17 +68,17 @@ class ItemModal extends Component {
                   +
                 </Button>
 
-                <h2>{this.state.amount} </h2>
+                <h2>{this.state.currentItem.amount} </h2>
                 <Button id="reset=btn" onClick={this.reset}>
                   Reset
                 </Button>
               </Container>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.props.handleModal}>
+              <Button color="primary" onClick={this.addItem}>
                 Add
               </Button>
-              <Button color="secondary" onClick={this.props.handleModal}>
+              <Button color="secondary" onClick={handleModal}>
                 Cancel
               </Button>
             </ModalFooter>

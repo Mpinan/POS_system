@@ -16,7 +16,15 @@ class Menu extends Component {
   };
 
   render() {
-    const { name, tableNumber, listOfTables } = this.props;
+    const {
+      name,
+      tableNumber,
+      listOfTables,
+      itemID,
+      price,
+      tableID,
+    } = this.props;
+    console.log(this.props.itemID);
     return (
       <div style={{ margin: "10px", padding: "15px" }}>
         <div>
@@ -29,7 +37,11 @@ class Menu extends Component {
             {name}
           </Button>
           <ItemModal
+            itemName={name}
+            itemID={itemID}
+            itemPrice={price}
             tableNumber={tableNumber}
+            tableID={tableID}
             listOfTables={listOfTables}
             id="itemModal"
             modal={this.state.modal}
