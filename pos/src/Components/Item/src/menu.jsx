@@ -24,7 +24,7 @@ class Menu extends Component {
       price,
       tableID,
     } = this.props;
-    console.log(this.props.itemID);
+
     return (
       <div style={{ margin: "10px", padding: "15px" }}>
         <div>

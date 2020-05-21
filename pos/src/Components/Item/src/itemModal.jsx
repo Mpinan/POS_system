@@ -35,8 +35,7 @@ class ItemModal extends Component {
     currentItem.price = this.props.itemPrice;
     this.setState({ currentItem });
     this.state.listOfTable[this.props.tableID].items.push(currentItem);
-    console.log(this.state.currentItem);
-    // this.props.handleModal();
+    this.props.handleModal();
   };
 
   render() {

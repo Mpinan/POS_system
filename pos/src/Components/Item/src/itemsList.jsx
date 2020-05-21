@@ -11,7 +11,7 @@ class ItemsList extends Component {
   }
 
   render() {
-    const { itemsInTable, totalPrice } = this.props;
+    const { itemsInTable } = this.props;
     let total = [];
     let list = itemsInTable.map((item) => {
       let totalPricePerItem;
@@ -19,8 +19,8 @@ class ItemsList extends Component {
       total.push(totalPricePerItem);
 
       return (
-        <tbody>
-          <tr key={item.id}>
+        <tbody key={item.id}>
+          <tr>
             <td>
               <a target="_blank" href={item.cfa_url}>
                 {item.name}

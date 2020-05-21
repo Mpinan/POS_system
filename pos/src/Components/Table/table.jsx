@@ -26,7 +26,6 @@ class DinningTable extends Component {
         <div style={{ margin: "10px", padding: "15px" }}>
           <button
             className={isBusy() ? "btn-lg btn-danger" : "btn-lg btn-primary"}
-            key={this.props.id}
             id="book-table"
             onClick={selectTable}
           >

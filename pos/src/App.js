@@ -81,14 +81,14 @@ class App extends Component {
       <Container className="App">
         <Container>
           <Row className="text-center">
-            {listOfTables.map((table) => (
-              <div style={{ margin: "2px" }}>
+            {listOfTables.map((table, i) => (
+              <div style={{ margin: "2px" }} key={i}>
                 <Col xs="6" sm="4">
                   <DinningTable
+                    key={i}
                     onClickSelectTable={() =>
                       this.onClickChangeTableList(table.id)
                     }
-                    id={table.id}
                     number={table.number}
                     items={table.items}
                     totalPrice={table.totalPrice}
@@ -100,25 +100,21 @@ class App extends Component {
         </Container>
         <Container>
           <Row className="text-center">
-            {listItems.map(
-              (item) => (
-                console.log(item.id),
-                (
-                  <div style={{ margin: "2px", float: "right" }}>
-                    <Col xs="4" sm="4">
-                      <Menu
-                        tableID={selectedTableID}
-                        itemID={item.id}
-                        name={item.name}
-                        price={item.price}
-                        tableNumber={selectedTable}
-                        listOfTables={listOfTables}
-                      />
-                    </Col>
-                  </div>
-                )
-              )
-            )}
+            {listItems.map((item, i) => (
+              <div style={{ margin: "2px", float: "right" }} key={i}>
+                <Col xs="4" sm="4" key={i}>
+                  <Menu
+                    key={i}
+                    tableID={selectedTableID}
+                    itemID={item.id}
+                    name={item.name}
+                    price={item.price}
+                    tableNumber={selectedTable}
+                    listOfTables={listOfTables}
+                  />
+                </Col>
+              </div>
+            ))}
           </Row>
         </Container>
         <Container>
