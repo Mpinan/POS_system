@@ -78,7 +78,7 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Container className="App">
+      <div className="App">
         <Container>
           <Row className="text-center">
             {listOfTables.map((table, i) => (
@@ -124,7 +124,7 @@ class App extends Component {
             totalPrice={totalPrice}
           ></ItemsList>
         </Container>
-      </Container>
+      </div>
     );
   }
 }
