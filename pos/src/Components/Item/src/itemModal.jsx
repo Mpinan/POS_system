@@ -16,7 +16,7 @@ class ItemModal extends Component {
   };
 
   reset = () => {
-    this.setState({ amount: 0 });
+    this.setState({ amount: 5 });
   };
 
   decrement = () => {
