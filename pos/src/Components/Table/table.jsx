@@ -4,7 +4,6 @@ class DinningTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isBusy: false,
       showTable: false,
     };
   }

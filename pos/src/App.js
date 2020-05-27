@@ -8,7 +8,7 @@ import ItemsList from "./Components/Item/src/itemsList";
 
 class App extends Component {
   state = {
-    showItemsInTable: false,
+    isBusy: false,
     items: [],
     listOfTables: [
       {
@@ -68,6 +68,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.listOfTables[1].items);
     const {
       listOfTables,
       listItems,
@@ -85,6 +86,7 @@ class App extends Component {
               <div style={{ margin: "2px" }} key={i}>
                 <Col xs="6" sm="4">
                   <DinningTable
+                    isBusy={this.state.isBusy}
                     key={i}
                     onClickSelectTable={() =>
                       this.onClickChangeTableList(table.id)

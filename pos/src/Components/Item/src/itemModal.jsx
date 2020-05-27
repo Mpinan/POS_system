@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class ItemModal extends Component {
   state = {
