@@ -16,7 +16,7 @@ class ItemModal extends Component {
   };
 
   reset = () => {
-    this.setState({ amount: 0 });
+    this.setState({ amount: 5 });
   };
 
   decrement = () => {
@@ -42,7 +42,7 @@ class ItemModal extends Component {
     const { modal, handleModal, tableNumber, itemName } = this.props;
     return (
       <div>
-        <Container>
+        <div>
           <Modal isOpen={modal} toggle={handleModal}>
             <ModalHeader toggle={handleModal}>
               {itemName} For Table number {tableNumber}
@@ -50,7 +50,7 @@ class ItemModal extends Component {
 
             <ModalBody>
               How Many?
-              <Container className="text-center">
+              <div className="text-center">
                 <Button
                   style={{ margin: "5px" }}
                   id="decrement=btn"
@@ -71,7 +71,7 @@ class ItemModal extends Component {
                 <Button id="reset=btn" onClick={this.reset}>
                   Reset
                 </Button>
-              </Container>
+              </div>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.addItem}>
@@ -82,7 +82,7 @@ class ItemModal extends Component {
               </Button>
             </ModalFooter>
           </Modal>
-        </Container>
+        </div>
       </div>
     );
   }

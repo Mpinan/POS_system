@@ -41,12 +41,14 @@ class ItemsList extends Component {
           <Table>
             <thead>
               <tr>
-                <th>Table number: {this.props.tableNumber}</th>
+                <th style={{ color: "white" }}>
+                  Table number: {this.props.tableNumber}
+                </th>
               </tr>
             </thead>
           </Table>
         )}
-        <Table striped responsive hover>
+        <Table striped responsive hover style={{ color: "white" }}>
           <thead>
             <tr>
               <th>Name</th>
