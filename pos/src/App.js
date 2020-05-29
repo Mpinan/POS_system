@@ -125,23 +125,21 @@ class App extends Component {
           </Row>
         </Container>
         <Container>
-          <Row className="text-center">
-            {listItems.map((item, i) => (
-              <div style={{ margin: "2px", float: "right" }} key={i}>
-                <Col xs="4" sm="4" key={i}>
-                  <Menu
-                    key={i}
-                    tableID={selectedTableID}
-                    itemID={item.id}
-                    name={item.name}
-                    price={item.price}
-                    tableNumber={selectedTable}
-                    listOfTables={listOfTables}
-                  />
-                </Col>
-              </div>
-            ))}
-          </Row>
+          {listItems.map((item, i) => (
+            <div style={{ margin: "2px" }} key={i}>
+              <Col xs="4" sm="4" key={i}>
+                <Menu
+                  key={i}
+                  tableID={selectedTableID}
+                  itemID={item.id}
+                  name={item.name}
+                  price={item.price}
+                  tableNumber={selectedTable}
+                  listOfTables={listOfTables}
+                />
+              </Col>
+            </div>
+          ))}
         </Container>
         <Container>
           <ItemsList
