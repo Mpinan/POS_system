@@ -105,7 +105,7 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Row className="text-center">
+          <Row className="text-left">
             {listOfTables.map((table, i) => (
               <div style={{ margin: "2px" }} key={i}>
                 <Col xs="6" sm="4">

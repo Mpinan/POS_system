@@ -22,8 +22,17 @@ class DinningTable extends Component {
 
     return (
       <div>
-        <div style={{ margin: "10px", padding: "15px" }}>
+        <div
+          style={{
+            margin: "10px",
+            padding: "15px",
+          }}
+        >
           <button
+            style={{
+              width: 100,
+              height: 100,
+            }}
             className={isBusy() ? "btn-lg btn-danger" : "btn-lg btn-primary"}
             id="book-table"
             onClick={selectTable}
