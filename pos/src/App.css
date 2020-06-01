@@ -1,8 +1,12 @@
 .App {
   text-align: center;
 }
+#dispaly {
+  display: inline-block;
+}
 #position {
   width: 50%;
+  display: inline-flex !important;
 }
 .margin {
   margin: 2px;

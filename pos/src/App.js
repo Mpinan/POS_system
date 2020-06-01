@@ -105,11 +105,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Container>
+        <Container id="display">
           <div classname="container" id="position">
             <Row>
               {listOfTables.map((table, i) => (
-                <div style={{ float: "left" }} className="margin" key={i}>
+                <div className="margin" key={i}>
                   <Col xs="6" sm="4">
                     <DinningTable
                       isBusy={this.state.isBusy}
@@ -126,31 +126,33 @@ class App extends Component {
               ))}
             </Row>
           </div>
-          <div className="container" id="position" style={{ float: "right" }}>
-            {listItems.map((item, i) => (
-              <div style={{ float: "right" }} className="margin" key={i}>
-                <Col xs="4" sm="4" key={i}>
-                  <Menu
-                    key={i}
-                    tableID={selectedTableID}
-                    itemID={item.id}
-                    name={item.name}
-                    price={item.price}
-                    tableNumber={selectedTable}
-                    listOfTables={listOfTables}
-                  />
-                </Col>
-              </div>
-            ))}
-          </div>
-          <div>
-            <ItemsList
-              itemsInTable={items}
-              tableNumber={selectedTable}
-              totalPrice={totalPrice}
-            ></ItemsList>
+          <div className="container" id="position">
+            <Row>
+              {listItems.map((item, i) => (
+                <div className="margin" key={i}>
+                  <Col xs="4" sm="4" key={i}>
+                    <Menu
+                      key={i}
+                      tableID={selectedTableID}
+                      itemID={item.id}
+                      name={item.name}
+                      price={item.price}
+                      tableNumber={selectedTable}
+                      listOfTables={listOfTables}
+                    />
+                  </Col>
+                </div>
+              ))}
+            </Row>
           </div>
         </Container>
+        <div>
+          <ItemsList
+            itemsInTable={items}
+            tableNumber={selectedTable}
+            totalPrice={totalPrice}
+          ></ItemsList>
+        </div>
       </div>
     );
   }
