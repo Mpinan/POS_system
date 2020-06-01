@@ -5,6 +5,7 @@ import Menu from "./Components/Item/src/menu";
 import "./App.css";
 import { Container, Row, Col } from "reactstrap";
 import ItemsList from "./Components/Item/src/itemsList";
+import { classnames } from "classnames";
 
 class App extends Component {
   state = {
@@ -105,48 +106,50 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Row className="text-left">
-            {listOfTables.map((table, i) => (
-              <div style={{ margin: "2px" }} key={i}>
-                <Col xs="6" sm="4">
-                  <DinningTable
-                    isBusy={this.state.isBusy}
+          <div classname="container" id="position">
+            <Row>
+              {listOfTables.map((table, i) => (
+                <div style={{ float: "left" }} className="margin" key={i}>
+                  <Col xs="6" sm="4">
+                    <DinningTable
+                      isBusy={this.state.isBusy}
+                      key={i}
+                      onClickSelectTable={() =>
+                        this.onClickChangeTableList(table.id)
+                      }
+                      number={table.number}
+                      items={table.items}
+                      totalPrice={table.totalPrice}
+                    />
+                  </Col>
+                </div>
+              ))}
+            </Row>
+          </div>
+          <div className="container" id="position" style={{ float: "right" }}>
+            {listItems.map((item, i) => (
+              <div style={{ float: "right" }} className="margin" key={i}>
+                <Col xs="4" sm="4" key={i}>
+                  <Menu
                     key={i}
-                    onClickSelectTable={() =>
-                      this.onClickChangeTableList(table.id)
-                    }
-                    number={table.number}
-                    items={table.items}
-                    totalPrice={table.totalPrice}
+                    tableID={selectedTableID}
+                    itemID={item.id}
+                    name={item.name}
+                    price={item.price}
+                    tableNumber={selectedTable}
+                    listOfTables={listOfTables}
                   />
                 </Col>
               </div>
             ))}
-          </Row>
-        </Container>
-        <Container>
-          {listItems.map((item, i) => (
-            <div style={{ margin: "2px" }} key={i}>
-              <Col xs="4" sm="4" key={i}>
-                <Menu
-                  key={i}
-                  tableID={selectedTableID}
-                  itemID={item.id}
-                  name={item.name}
-                  price={item.price}
-                  tableNumber={selectedTable}
-                  listOfTables={listOfTables}
-                />
-              </Col>
-            </div>
-          ))}
-        </Container>
-        <Container>
-          <ItemsList
-            itemsInTable={items}
-            tableNumber={selectedTable}
-            totalPrice={totalPrice}
-          ></ItemsList>
+          </div>
+          <div>
+            <ItemsList
+              itemsInTable={items}
+              tableNumber={selectedTable}
+              totalPrice={totalPrice}
+            ></ItemsList>
+          </div>
         </Container>
       </div>
     );
