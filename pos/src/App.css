@@ -4,10 +4,12 @@
 #dispaly {
   display: inline-block;
 }
+
 #position {
-  width: 50%;
+  width: 33%;
   display: inline-flex !important;
 }
+
 .margin {
   margin: 2px;
 }

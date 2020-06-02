@@ -105,8 +105,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Container id="display">
-          <div classname="container" id="position">
+        <div id="display">
+          <div classname="container" id="position" style={{ float: "left" }}>
             <Row>
               {listOfTables.map((table, i) => (
                 <div className="margin" key={i}>
@@ -126,7 +126,7 @@ class App extends Component {
               ))}
             </Row>
           </div>
-          <div className="container" id="position">
+          <div className="container" id="position" style={{ float: "right" }}>
             <Row>
               {listItems.map((item, i) => (
                 <div className="margin" key={i}>
@@ -145,8 +145,8 @@ class App extends Component {
               ))}
             </Row>
           </div>
-        </Container>
-        <div>
+        </div>
+        <div id="position">
           <ItemsList
             itemsInTable={items}
             tableNumber={selectedTable}
