@@ -29,6 +29,10 @@ class Menu extends Component {
       <div style={{ margin: "10px", padding: "15px" }}>
         <div>
           <Button
+            style={{
+              width: 100,
+              height: 100,
+            }}
             className="btn-primary btn-lg"
             color={this.state.isBusy ? "danger" : "primary"}
             id="add-Item"

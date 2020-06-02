@@ -19,7 +19,7 @@ class ItemsList extends Component {
       total.push(totalPricePerItem);
 
       return (
-        <tbody key={item.id}>
+        <tbody key={item.id} style={{ color: "black" }}>
           <tr>
             <td>
               <a target="_blank" href={item.cfa_url}>
@@ -36,19 +36,17 @@ class ItemsList extends Component {
     });
 
     return (
-      <div>
+      <div style={{ color: "black" }}>
         {this.state.show ? null : (
           <Table>
             <thead>
               <tr>
-                <th style={{ color: "white" }}>
-                  Table number: {this.props.tableNumber}
-                </th>
+                <th>Table number: {this.props.tableNumber}</th>
               </tr>
             </thead>
           </Table>
         )}
-        <Table striped responsive hover style={{ color: "white" }}>
+        <Table striped responsive hover>
           <thead>
             <tr>
               <th>Name</th>

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 3%;
 }
 #dispaly {
   display: inline-block;
@@ -8,6 +9,25 @@
 #position {
   width: 33%;
   display: inline-flex !important;
+}
+
+.row,
+#items {
+  float: right;
+}
+
+.container-bg {
+  width: 100%;
+  margin-top: 5%;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: 5% auto;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 1em;
+  line-height: 1.5em;
+  background: hsla(67, 95%, 95%, 1);
+  border: solid 5px hsla(0, 95%, 35%, 1);
 }
 
 .margin {
