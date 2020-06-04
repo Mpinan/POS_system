@@ -30,8 +30,8 @@ class Menu extends Component {
         <div>
           <Button
             style={{
-              width: 100,
-              height: 100,
+              width: 150,
+              height: "auto",
             }}
             className="btn-primary btn-lg"
             color={this.state.isBusy ? "danger" : "primary"}
