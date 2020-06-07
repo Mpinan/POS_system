@@ -10,12 +10,6 @@
   display: inline-flex !important;
 }
 
-/* 
-.row,
-#items {
-  float: right;
-} */
-
 #left {
   float: left;
 }
