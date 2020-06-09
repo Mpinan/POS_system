@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+import Delete from "./deleteButton";
 
 class ItemsList extends Component {
   state = {
@@ -18,6 +19,10 @@ class ItemsList extends Component {
       totalPricePerItem = item.amount * item.price;
       total.push(totalPricePerItem);
 
+      // handleDelete = () => {
+      //   this.item.amount =- 1;
+      // };
+
       return (
         <tbody key={item.id} style={{ color: "black" }}>
           <tr>
@@ -29,7 +34,9 @@ class ItemsList extends Component {
             <td>{item.amount}</td>
             <td>£{item.price}</td>
             <td>£{totalPricePerItem}</td>
-            <td></td>
+            <td>
+              <Delete amount={item.amount} />
+            </td>
           </tr>
         </tbody>
       );

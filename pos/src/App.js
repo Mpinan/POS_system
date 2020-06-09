@@ -16,7 +16,7 @@ class App extends Component {
         id: 0,
         number: 1,
         items: [
-          { id: 0, name: "Sirloin", price: 20, amount: 3 },
+          { id: 0, name: "Sirloin", amount: 3, price: 20 },
           {
             id: 1,
             name: "Coke",
@@ -33,7 +33,7 @@ class App extends Component {
         id: 5,
         number: 6,
         items: [
-          { id: 0, name: "Sirloin", price: 20, amount: 1 },
+          { id: 0, name: "Sirloin", amount: 1, price: 20 },
           {
             id: 1,
             name: "Coke",
@@ -47,7 +47,7 @@ class App extends Component {
         id: 7,
         number: 8,
         items: [
-          { id: 0, name: "Sirloin", price: 20, amount: 1 },
+          { id: 0, name: "Sirloin", amount: 1, price: 20 },
           {
             id: 1,
             name: "Coke",
@@ -91,6 +91,10 @@ class App extends Component {
     let items = [...listOfTables[tableNumber].items];
     this.setState({ items });
   };
+
+  // addItemTable = (item) => {
+
+  // }
 
   render() {
     console.log(this.state.listOfTables[1].items);
