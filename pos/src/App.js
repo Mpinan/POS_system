@@ -105,47 +105,40 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div id="display">
-          <div className="container" id="position" style={{ float: "left" }}>
-            <Row>
-              {listOfTables.map((table, i) => (
-                <div className="margin" key={i}>
-                  <Col xs="6" sm="4">
-                    <DinningTable
-                      isBusy={this.state.isBusy}
-                      key={i}
-                      onClickSelectTable={() =>
-                        this.onClickChangeTableList(table.id)
-                      }
-                      number={table.number}
-                      items={table.items}
-                      totalPrice={table.totalPrice}
-                    />
-                  </Col>
-                </div>
-              ))}
-            </Row>
-          </div>
-          <div className="container" id="position" style={{ float: "right" }}>
-            <Row id="items">
-              {listItems.map((item, i) => (
-                <div className="margin" key={i}>
-                  <Col xs="4" sm="4" key={i}>
-                    <Menu
-                      key={i}
-                      tableID={selectedTableID}
-                      itemID={item.id}
-                      name={item.name}
-                      price={item.price}
-                      tableNumber={selectedTable}
-                      listOfTables={listOfTables}
-                    />
-                  </Col>
-                </div>
-              ))}
-            </Row>
-          </div>
+        <div id="tables">
+          {listOfTables.map((table, i) => (
+            <div className="margin" key={i}>
+              <DinningTable
+                isBusy={this.state.isBusy}
+                key={i}
+                onClickSelectTable={() => this.onClickChangeTableList(table.id)}
+                number={table.number}
+                items={table.items}
+                totalPrice={table.totalPrice}
+              />
+            </div>
+          ))}
         </div>
+        <div className="container" id="position">
+          <Row id="items">
+            {listItems.map((item, i) => (
+              <div className="margin" key={i}>
+                <Col xs="4" sm="4" key={i}>
+                  <Menu
+                    key={i}
+                    tableID={selectedTableID}
+                    itemID={item.id}
+                    name={item.name}
+                    price={item.price}
+                    tableNumber={selectedTable}
+                    listOfTables={listOfTables}
+                  />
+                </Col>
+              </div>
+            ))}
+          </Row>
+        </div>
+
         <Container id="position">
           <div className="container-bg">
             <ItemsList

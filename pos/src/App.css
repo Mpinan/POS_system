@@ -1,13 +1,9 @@
-.App {
-  margin: 3%;
-}
-#dispaly {
-  display: inline-block;
+#tables {
+  display: inline-flex;
 }
 
 #position {
-  width: 33%;
-  display: inline-flex !important;
+  width: 50%;
 }
 
 #left {
