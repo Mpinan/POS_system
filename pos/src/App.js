@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import DinningTable from "./Components/Table/table";
 import Menu from "./Components/Item/src/menu";
 import "./App.css";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import ItemsList from "./Components/Item/src/itemsList";
-import { classnames } from "classnames";
+import ItemModal from "./Components/Item/src/itemModal";
 
 class App extends Component {
   state = {
@@ -92,10 +92,6 @@ class App extends Component {
     this.setState({ items });
   };
 
-  // addItemTable = (item) => {
-
-  // }
-
   render() {
     console.log(this.state.listOfTables[1].items);
     const {
@@ -129,6 +125,7 @@ class App extends Component {
             {listItems.map((item, i) => (
               <div className="margin" key={i}>
                 <Col xs="4" sm="4" key={i}>
+                  <ItemModal item={item} />
                   <Menu
                     key={i}
                     tableID={selectedTableID}

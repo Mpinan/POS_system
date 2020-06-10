@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ItemModal from "./itemModal";
+
 import { Button } from "reactstrap";
 
 class Menu extends Component {
@@ -16,14 +16,7 @@ class Menu extends Component {
   };
 
   render() {
-    const {
-      name,
-      tableNumber,
-      listOfTables,
-      itemID,
-      price,
-      tableID,
-    } = this.props;
+    const { name } = this.props;
 
     return (
       <div style={{ margin: "10px", padding: "15px" }}>
@@ -40,17 +33,6 @@ class Menu extends Component {
           >
             {name}
           </Button>
-          <ItemModal
-            itemName={name}
-            itemID={itemID}
-            itemPrice={price}
-            tableNumber={tableNumber}
-            tableID={tableID}
-            listOfTables={listOfTables}
-            id="itemModal"
-            modal={this.state.modal}
-            handleModal={this.handleModal}
-          />
         </div>
       </div>
     );

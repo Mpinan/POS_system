@@ -11,6 +11,10 @@ class ItemsList extends Component {
     this.setState({ show: !this.state.show });
   }
 
+  handleClick(item) {
+    console.log(item.id);
+  }
+
   render() {
     const { itemsInTable } = this.props;
     let total = [];
@@ -25,7 +29,7 @@ class ItemsList extends Component {
 
       return (
         <tbody key={item.id} style={{ color: "black" }}>
-          <tr>
+          <tr onClick={() => this.handleClick(item)}>
             <td>
               <a target="_blank" href={item.cfa_url}>
                 {item.name}
@@ -35,7 +39,11 @@ class ItemsList extends Component {
             <td>£{item.price}</td>
             <td>£{totalPricePerItem}</td>
             <td>
-              <Delete amount={item.amount} />
+              <Delete
+                // click={this.props.handleClick(item.id)}
+                amount={item.amount}
+                id={item.id}
+              />
             </td>
           </tr>
         </tbody>
