@@ -15,6 +15,7 @@ class App extends Component {
     listOfTables: [],
     listItems: [],
     totalPrice: 0,
+    amount: 0,
   };
 
   componentDidMount() {
@@ -83,6 +84,7 @@ class App extends Component {
         <div className="container" id="container" style={{ float: "left" }}>
           <div className="container-bg">
             <ItemsList
+              amount={this.state.amount}
               itemsInTable={items}
               tableNumber={selectedTable}
               totalPrice={totalPrice}

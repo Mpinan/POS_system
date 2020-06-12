@@ -12,11 +12,11 @@ class ItemsList extends Component {
   }
 
   render() {
-    const { itemsInTable } = this.props;
+    const { itemsInTable, amount, tableNumber } = this.props;
     let total = [];
     let list = itemsInTable.map((item) => {
       let totalPricePerItem;
-      totalPricePerItem = item.amount * item.price;
+      totalPricePerItem = amount * item.price;
       total.push(totalPricePerItem);
 
       return (
@@ -27,7 +27,7 @@ class ItemsList extends Component {
                 {item.name}
               </a>
             </td>
-            <td>{item.amount}</td>
+            <td>{amount}</td>
             <td>£{item.price}</td>
             <td>£{totalPricePerItem}</td>
             <td>
@@ -44,7 +44,7 @@ class ItemsList extends Component {
           <Table>
             <thead>
               <tr>
-                <th>Table number: {this.props.tableNumber}</th>
+                <th>Table number: {tableNumber}</th>
               </tr>
             </thead>
           </Table>
