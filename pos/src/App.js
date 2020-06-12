@@ -1,87 +1,27 @@
 import React, { Component } from "react";
-
 import DinningTable from "./Components/Table/table";
 import Menu from "./Components/Item/src/menu";
 import "./App.css";
 import { Row, Col } from "reactstrap";
 import ItemsList from "./Components/Item/src/itemsList";
 import ItemModal from "./Components/Item/src/itemModal";
+import { getTables } from "./Components/services/fakeTables";
+import { getItems } from "./Components/services/fakeItems";
 
 class App extends Component {
   state = {
     isBusy: false,
     items: [],
-    listOfTables: [
-      {
-        id: 0,
-        number: 1,
-        items: [
-          { id: 0, name: "Sirloin", amount: 3, price: 20 },
-          {
-            id: 1,
-            name: "Coke",
-            amount: 3,
-            price: 20,
-          },
-        ],
-      },
-      { id: 1, number: 2, items: [] },
-      { id: 2, number: 3, items: [] },
-      { id: 3, number: 4, items: [] },
-      { id: 4, number: 5, items: [] },
-      {
-        id: 5,
-        number: 6,
-        items: [
-          { id: 0, name: "Sirloin", amount: 1, price: 20 },
-          {
-            id: 1,
-            name: "Coke",
-            amount: 3,
-            price: 20,
-          },
-        ],
-      },
-      { id: 6, number: 7, items: [] },
-      {
-        id: 7,
-        number: 8,
-        items: [
-          { id: 0, name: "Sirloin", amount: 1, price: 20 },
-          {
-            id: 1,
-            name: "Coke",
-            amount: 3,
-            price: 20,
-          },
-        ],
-      },
-    ],
-
-    listItems: [
-      {
-        id: 0,
-        name: "Sirloin",
-        price: 20,
-      },
-      {
-        id: 1,
-        name: "Bolognese",
-        price: 20,
-      },
-      {
-        id: 2,
-        name: "Coke",
-        price: 20,
-      },
-      {
-        id: 3,
-        name: "Fanta",
-        price: 20,
-      },
-    ],
+    listOfTables: [],
+    listItems: [],
     totalPrice: 0,
   };
+
+  componentDidMount() {
+    let tables = getTables();
+    let items = getItems();
+    this.setState({ listOfTables: tables, listItems: items });
+  }
 
   onClickChangeTableList = (tableNumber) => {
     const { listOfTables } = this.state;
@@ -93,7 +33,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.listOfTables[1].items);
     const {
       listOfTables,
       listItems,
