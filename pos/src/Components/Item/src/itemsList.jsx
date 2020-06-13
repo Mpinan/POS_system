@@ -44,7 +44,7 @@ class ItemsList extends Component {
           <Table>
             <thead>
               <tr>
-                <th>Table number: {tableNumber}</th>
+                <th>Table number {tableNumber}</th>
               </tr>
             </thead>
           </Table>
