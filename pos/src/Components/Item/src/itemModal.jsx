@@ -10,9 +10,9 @@ class ItemModal extends Component {
     this.setState({ amount: this.state.amount + 1 });
   };
 
-  // handleDeleteItem = (amount) => {
-  //   console.log(amount);
-  // };
+  handleDeleteItem = (amount) => {
+    console.log(amount);
+  };
 
   // addItem = () => {
   //   const currentItem = {};
