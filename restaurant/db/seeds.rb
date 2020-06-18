@@ -16,7 +16,7 @@ items = Item.create([
     {
     name: "Sirloin",
     type: "Main",
-    price: 20,
+    price: 17,
   },
   {
     name: "Bolognese",
