@@ -15,7 +15,7 @@ class App extends Component {
     listOfTables: [],
     listItems: [],
     totalPrice: 0,
-    amount: 0,
+    amount: 5,
   };
 
   componentDidMount() {
