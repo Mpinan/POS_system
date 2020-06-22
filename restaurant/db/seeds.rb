@@ -3,44 +3,26 @@
 #
 
 tables = Table.create([
-    { number: 2 },
-    { number: 3 },
-    { number: 4 },
-    { number: 5 },
-    { number: 6 },
-    { number: 7 },
-    { number: 8 }
+    { tableNumber: 2 },
+    { tableNumber: 3 },
+    { tableNumber: 4 },
+    { tableNumber: 5 },
+    { tableNumber: 6 },
+    { tableNumber: 7 },
+    { tableNumber: 8 }
 ])
 
 items = Item.create([
     {
     name: "Sirloin",
-    type: "Main",
+    itemType: "Main",
     price: 17,
-  },
-  {
-    name: "Bolognese",
-    type: "Main",
-    price: 15,
+    table: tables.first
   },
   {
     name: "Coke",
-    type: "Drink",
+    itemType: "Drink",
     price: 3,
-  },
-  {
-    name: "Fanta",
-    type: "Drink",
-    price: 3,
-  },
-  {
-    name: "Brownie",
-    type: "Dessert",
-    price: 5,
-  },
-  {
-    name: "Tiramisu",
-    type: "Dessert",
-    price: 5,
-  },
+    table: tables.first
+  }
 ])

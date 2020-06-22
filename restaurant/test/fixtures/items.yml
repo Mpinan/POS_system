@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  type: 
+  itemType:
   allergens: MyString
   table: one
 
 two:
   name: MyString
-  type: 
+  itemType:
   allergens: MyString
   table: two
