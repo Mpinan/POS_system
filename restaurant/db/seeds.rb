@@ -16,12 +16,14 @@ items = Item.create([
     {
     name: "Sirloin",
     itemType: "Main",
+    allergens: "None",
     price: 17,
     table: tables.first
   },
   {
     name: "Coke",
     itemType: "Drink",
+    allergens: "None",
     price: 3,
     table: tables.first
   }
