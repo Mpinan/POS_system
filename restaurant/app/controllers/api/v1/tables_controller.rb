@@ -1,6 +1,7 @@
 module Api 
     module V1
         class TablesController < ApplicationController
+            protect_from_forgery with: :null_session
             def index
                 tables = Table.all
 

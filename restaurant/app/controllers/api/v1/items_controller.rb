@@ -1,6 +1,7 @@
 module Api 
     module V1
         class ItemsController < ApplicationController
+            protect_from_forgery with: :null_session
             def create
                 item = Item.new(item_params)
                 if item.save
