@@ -44,7 +44,9 @@ module Api
             private
 
             def table_params
+
                 params.require(:table).permit(:tableNumber)
+
             end
 
             def options
