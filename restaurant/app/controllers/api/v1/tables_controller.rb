@@ -47,7 +47,7 @@ module Api
             end
 
             def options
-                @options ||= {include :i[items]}
+                @options ||= { include: %i[items] }
             end
 
 

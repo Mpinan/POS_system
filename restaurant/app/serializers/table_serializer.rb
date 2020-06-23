@@ -1,6 +1,6 @@
 class TableSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :number
+  attributes :tableNumber
   
   has_many :items
 end
