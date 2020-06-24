@@ -10,14 +10,14 @@ RSpec.describe Table, type: :model do
       itemType: "Main",
       allergens: "None",
       price: 17,
-      table: tables.id
+      table: table.id
     },
     {
       name: "Coke",
       itemType: "Drink",
       allergens: "None",
       price: 3,
-      table: tables.id
+      table: table.id
     }
   ])
 

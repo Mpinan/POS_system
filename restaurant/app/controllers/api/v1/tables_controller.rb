@@ -53,9 +53,6 @@ module Api
                 @options ||= { include: %i[items] }
             end
 
-
-
-
         end
     end
 end
