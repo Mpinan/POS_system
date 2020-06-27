@@ -15,10 +15,13 @@ require 'rails_helper'
                     name: "Coke",
                     itemType: "Drink",
                     allergens: "None",
-                    price: 3
+                    price: 3,
+                    table_id: 10
                     } } 
+
                     item = Item.find_by(name: "Coke")
-                    expect(Item.name).to eq("Coke")
+                    # p Item.first
+                    expect(item).to eq("Coke")
                 end
 
                 xit 'can update a item' do
