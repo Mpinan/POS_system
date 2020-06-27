@@ -8,12 +8,31 @@ require 'rails_helper'
                     expect(response).to have_http_status(200)
                 end
             end
-            context 'table' do
+            context 'CRUD' do
                 it 'can Create a table' do
                     post :create, params: { table: {tableNumber: 2} } 
                     table = Table.find_by(tableNumber: 2)
                     expect(table.tableNumber).to eq(2)
-                  end
+                end
+
+                it 'can update a table' do
+                    post :create, params: { table: {tableNumber: 2} } 
+                    table = Table.find_by(tableNumber: 2)
+                    p table
+                    patch :update, params: table 
+                    idCheck = Table.find(table.id)
+                    expect(table.id).to eq(idCheck)
+                    expect(table.tableNumber).to eq(8)
+                end
+
+                it 'can delete a table' do
+                    post :create, params: { table: {tableNumber: 2} } 
+                    table = Table.find_by(tableNumber: 2)
+                    delete :delete, params: { id: table.id }
+                    expect(table.tableNumber).no_to_ eq(2)
+                end
+
+                
             end
 
 end
