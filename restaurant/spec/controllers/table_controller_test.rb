@@ -2,9 +2,9 @@ require 'rails_helper'
 
 
         RSpec.describe Api::V1::TablesController, type: :controller do
-            describe 'GET /new ' do
+            describe 'show all tables ' do
                 it 'responds with 200' do
-                    get :tables
+                    get :index
                     expect(response).to have_http_status(200)
                 end
             end
