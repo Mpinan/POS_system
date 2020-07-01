@@ -21,7 +21,7 @@ module Api
             end
 
             def update
-                item = Item.find_by(item: params[:item.name])
+                item = Item.find(params[:name])
                 if item.update(item_params)
                     render json: ItemSerializer.new(item).serialized_json
                 else
@@ -30,7 +30,7 @@ module Api
             end
 
             def destroy
-                item = Item.find_by(item: params[:item.name])
+                item = Item.find(params[:id])
                 if item.destroy
                     head :no_content
                 else
