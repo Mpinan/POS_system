@@ -27,7 +27,7 @@ module Api
             end
 
             def update
-                item = Item.find_by(id: params[:id])
+                item = Item.find_by(name: params[:name])
                 p item 
                 p item_params, "<--------"
                 if item.update(item_params)
