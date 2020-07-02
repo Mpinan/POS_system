@@ -9,11 +9,17 @@ module Api
                 render json: ItemSerializer.new(items).serialized_json
             end
 
+            def show
+                item = Item.find_by(params[:name])
+
+                render json: ItemSerializer.new(item).serialized_json
+            end
+
             def create
                 item = Item.new(item_params)
 
                 if item.save
-                    p item, "<--------"
+                    
                     render json: ItemSerializer.new(item).serialized_json
                 else
                     render json: {error: item.errors.messages }, status: 422
@@ -21,7 +27,9 @@ module Api
             end
 
             def update
-                item = Item.find(params[:name])
+                item = Item.find_by(id: params[:id])
+                p item 
+                p item_params, "<--------"
                 if item.update(item_params)
                     render json: ItemSerializer.new(item).serialized_json
                 else
