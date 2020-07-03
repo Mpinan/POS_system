@@ -8,6 +8,8 @@ import ItemModal from "./Components/Item/src/itemModal";
 import { getTables } from "./Components/services/fakeTables";
 import { getItems } from "./Components/services/fakeItems";
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 class App extends Component {
   state = {
     isBusy: false,
