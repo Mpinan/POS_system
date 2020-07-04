@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources  :sessions, only: [:create]
+
+  resources  :user, only: [:create]
   resources :signup, only: [:create]
+  delete :logout, to: "user#logout"
+  get :logged_in, to "user#logged_in"
   root 'pages#index'  
 
   namespace :api do
