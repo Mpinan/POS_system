@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources  :sessions, only: [:create]
+  resources :signup, only: [:create]
   root 'pages#index'  
 
   namespace :api do

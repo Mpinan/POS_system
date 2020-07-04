@@ -1,4 +1,5 @@
 class Table < ApplicationRecord
+    belongs_to :user
     has_many :items
 
     def total_price
