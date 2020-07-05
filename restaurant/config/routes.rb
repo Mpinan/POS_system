@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources  :user, only: [:create]
   resources :signup, only: [:create]
   delete :logout, to: "user#logout"
-  get :logged_in, to "user#logged_in"
-  root 'pages#index'  
+  get :logged_in, to: "user#logged_in"
+  root 'user#index'  
 
   namespace :api do
     namespace :v1 do
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'pages#index', via: :all
+  get '*path', to: 'user#index', via: :all
 
 end
