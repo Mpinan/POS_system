@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    alias_attribute :password_digest, :password
     has_secure_password
 
     has_many :tables

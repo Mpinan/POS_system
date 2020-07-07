@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {
   Container,
   Col,
@@ -24,15 +25,35 @@ class Signup extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log("from submbitted");
-  }
-
   handleChange(e) {
+    e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
     });
+  }
+
+  handleSubmit(e) {
+    const { email, password, password_confirmation, pin, errors } = this.state;
+    axios
+      .post(
+        "http://localhost:3000/signup",
+        {
+          user: {
+            email: email,
+            password: password,
+            password_confirmation: password_confirmation,
+            pin: pin,
+          },
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.log("response", response);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+    e.preventDefault();
   }
 
   render() {
